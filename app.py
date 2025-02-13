@@ -3,7 +3,6 @@ import numpy as np
 import pickle
 from sklearn.preprocessing import LabelEncoder
 
-
 # Load the trained model
 model_filename = "malaria_drug_resistance_model.pkl"
 with open(model_filename, "rb") as model_file:
@@ -23,12 +22,28 @@ encoder_snp1.fit(snp1_categories)
 encoder_snp2.fit(snp2_categories)
 encoder_drug.fit(drug_type_categories)
 
-
-#load image
+# Load image
 st.image("image.jpg")
 
 # Streamlit App Title
 st.title("Malaria Drug Resistance Prediction")
+
+# Description
+st.markdown("""
+### **Description**
+This application predicts whether a malaria strain is **drug-resistant** based on genetic and protein expression data.
+
+### **How It Works**
+- Select **SNP (Single Nucleotide Polymorphisms)** and **Drug Type** from the dropdown menus.
+- Enter numerical values for **gene expression** and **protein levels**.
+- Click **'Predict'** to determine whether the malaria strain is resistant to the selected drug.
+
+### **Why This Matters**
+- Helps in understanding **drug resistance patterns**.
+- Supports **malaria research and drug development**.
+- Provides insights for **effective treatment strategies**.
+
+""")
 
 # User Input (Dropdowns for categorical features)
 st.sidebar.header("Enter Feature Values")
